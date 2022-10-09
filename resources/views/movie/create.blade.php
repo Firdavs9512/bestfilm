@@ -122,7 +122,7 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Layouts">Actior</div>
@@ -133,7 +133,7 @@
                     <div data-i18n="Vertical Form">Actior index</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="form-layouts-horizontal.html" class="menu-link">
                     <div data-i18n="Boxicons">Actior create</div>
                   </a>
@@ -152,7 +152,7 @@
                 <div data-i18n="Support">Movie index</div>
               </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active">
               <a
                 href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
                 target="_blank"
@@ -207,7 +207,7 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Actior /</span> Create</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Movies /</span> Create</h4>
 
               <!-- Basic Layout & Basic with Icons -->
               <div class="row">
@@ -215,32 +215,39 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Actior create</h5>
+                      <h5 class="mb-0">Movie create</h5>
                     </div>
                     <div class="card-body">
-                      <form method="POST" action="{{ route('actior.store') }}" enctype="multipart/form-data">
+                      <form method="POST" action="{{ route('moviestore') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
-                            <input type="text" name="name" class="form-control" id="basic-default-name" placeholder="Actior name" />
+                            <input type="text" name="name" class="form-control" id="basic-default-name" placeholder="Movie name" />
                             <div class="form-text">You can use letters, numbers & periods</div>
                         </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" >Day of Bird</label>
+                            <label class="col-sm-2 col-form-label" >Film Date</label>
                             <div class="col-sm-10">
                               <input name="date" type="date" class="form-control" />
                               <div class="form-text">You can use letters, numbers & periods</div>
                             </div>
                           </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-email">Country</label>
+                            <label class="col-sm-2 col-form-label" >Film Time</label>
+                            <div class="col-sm-10">
+                              <input name="filmtime" type="time" class="form-control" />
+                              <div class="form-text">You can use letters, numbers & periods</div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-email">Reatung */10</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <input
-                                name="country"
-                                type="text"
+                                name="reating"
+                                type="number"
                                 id="basic-default-email"
                                 class="form-control"
                                 placeholder="Country"
@@ -251,7 +258,7 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="formFile" class="col-sm-2 col-form-label">Actior Image</label>
+                            <label for="formFile" class="col-sm-2 col-form-label">Movie Image</label>
                             <div class="col-sm-10">
                                 <input name="photo" class="form-control" type="file" id="formFile">
                                 <div class="form-text">You can use letters, numbers & periods</div>
@@ -273,20 +280,37 @@
                             <div class="form-text">You can use letters, numbers & periods</div>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="biographi">Biographi</label>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" >Categories MAX-3</label>
+
+
                             <div class="col-sm-10">
-                              <textarea
-                                name="biographi"
-                                id="biographi"
-                                class="form-control"
-                                placeholder="Biographi"
-                                aria-label="Biographi"
-                                aria-describedby="basic-icon-default-message2"
-                              ></textarea>
-                              <div class="form-text">You can use letters, numbers & periods</div>
+
+                                <select name="categories[]" class="select form-control" multiple data-mdb-filter="true">
+
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
-                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" >Tags</label>
+
+
+                            <div class="col-sm-10">
+
+                                <select name="tags[]" class="select form-control" multiple data-mdb-filter="true">
+
+                                    @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Create</button>

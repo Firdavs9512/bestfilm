@@ -58,3 +58,5 @@ Route::post('/category/{id}/edit',[CategoryController::class,'update'])->name('c
 
 //Route::resource('/movie', MovieController::class);
 Route::get('/movie',[MovieController::class,'index'])->name('movieindex');
+Route::get('/movie/create',[MovieController::class,'create'])->name('moviecreate');
+Route::post('/movie',[MovieController::class,'store'])->name('moviestore');

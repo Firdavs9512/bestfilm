@@ -16,7 +16,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
+        $movies = Movie::paginate(10);
         return view('movie.index',compact('movies'));
     }
 
@@ -41,24 +41,28 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         //dd($request->tags);
-
+        $file = $request->file('photo')->store('images/movies');
         $movies = new Movie([
             'name' => $request->name,
-            'photo' => $request->photo,
+            'photo' => $file,
             'overview' => $request->overview,
             'date' => $request->date,
             'reating' => $request->reating,
             'filmtime' => $request->filmtime
         ]);
         $movies->save();
-        foreach ($request->tags as $tag)
-        {
-            $movies->tags()->attach($tag);
+        if(isset($request->tags) and isset($request->categories)){
+            foreach ($request->tags as $tag)
+            {
+                $movies->tags()->attach($tag);
+            }
+
+            foreach ($request->categories as $category)
+            {
+                $movies->categories()->attach($category);
+            }
         }
-        foreach ($request->categories as $category)
-        {
-            $movies->categories()->attach($category);
-        }
+
         return redirect('/movie');
     }
 

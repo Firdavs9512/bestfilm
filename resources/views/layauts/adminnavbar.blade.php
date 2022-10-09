@@ -40,7 +40,7 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ url('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-
+<link rel="stylesheet" href="{{ url('/assets/css/core.css') }}">
     <!-- Page CSS -->
 
     <!-- Helpers -->
