@@ -111,12 +111,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="forms-basic-inputs.html" class="menu-link">
+                  <a href="{{ route('tagindex') }}" class="menu-link">
                     <div data-i18n="Basic Inputs">Tag index</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="forms-input-groups.html" class="menu-link">
+                  <a href="{{ route('tagcreate') }}" class="menu-link">
                     <div data-i18n="Input groups">Tag create</div>
                   </a>
                 </li>
@@ -129,23 +129,40 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="form-layouts-vertical.html" class="menu-link">
+                  <a href="{{ route('actiorindex') }}" class="menu-link">
                     <div data-i18n="Vertical Form">Actior index</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="form-layouts-horizontal.html" class="menu-link">
+                  <a href="{{ route('actiorcreate') }}" class="menu-link">
                     <div data-i18n="Boxicons">Actior create</div>
                   </a>
                 </li>
               </ul>
             </li>
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-detail"></i>
+                  <div data-i18n="Form Layouts">Users</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="{{ route('userindex') }}" class="menu-link">
+                      <div data-i18n="Vertical Form">User list</div>
+                    </a>
+                  </li>
+                  <li class="menu-item ">
+                    <a href="{{ route('usercrete') }}" class="menu-link">
+                      <div data-i18n="Boxicons">User create</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             <!-- Misc -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Movies</span></li>
             <li class="menu-item">
               <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                target="_blank"
+                href="{{ route('movieindex') }}"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-file"></i>
@@ -154,8 +171,7 @@
             </li>
             <li class="menu-item">
               <a
-                href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                target="_blank"
+                href="{{ route('moviecreate') }}"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-crown"></i>

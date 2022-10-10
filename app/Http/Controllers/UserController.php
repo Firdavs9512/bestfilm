@@ -93,6 +93,11 @@ class UserController extends Controller
         }else{
             $file = $user->photo;
         }
+        if($request->password ==! null){
+            $password = $request->password;
+        }else{
+            $password = $user->password;
+        }
 
         $user->update([
             'firsname' =>$request->firsname,
@@ -101,7 +106,7 @@ class UserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'photo' => $file,
-            'password' => $request->password
+            'password' => $password
         ]);
         return redirect('/user');
     }

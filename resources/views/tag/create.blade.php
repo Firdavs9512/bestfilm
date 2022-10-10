@@ -86,7 +86,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Category</span></li>
             <!-- Cards -->
             <li class="menu-item" >
-              <a href="cards-basic.html" class="menu-link">
+              <a href="{{ route('categoryindex') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">List</div>
               </a>
@@ -94,7 +94,7 @@
 
 
             <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
+              <a href="{{ route('categorycreate') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-crown"></i>
                 <div data-i18n="Boxicons">Create</div>
               </a>
@@ -128,12 +128,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="form-layouts-vertical.html" class="menu-link">
+                  <a href="{{ route('actiorindex') }}" class="menu-link">
                     <div data-i18n="Vertical Form">Actior list</div>
                   </a>
                 </li>
                 <li class="menu-item ">
-                  <a href="form-layouts-horizontal.html" class="menu-link">
+                  <a href="{{ route('actiorcreate') }}" class="menu-link">
                     <div data-i18n="Boxicons">Actior create</div>
                   </a>
                 </li>
@@ -147,12 +147,12 @@
                 </a>
                 <ul class="menu-sub">
                   <li class="menu-item">
-                    <a href="form-layouts-vertical.html" class="menu-link">
+                    <a href="{{ route('userindex') }}" class="menu-link">
                       <div data-i18n="Vertical Form">User list</div>
                     </a>
                   </li>
                   <li class="menu-item ">
-                    <a href="form-layouts-horizontal.html" class="menu-link">
+                    <a href="{{ route('usercrete') }}" class="menu-link">
                       <div data-i18n="Boxicons">User create</div>
                     </a>
                   </li>
@@ -162,8 +162,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Movies</span></li>
             <li class="menu-item">
               <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                target="_blank"
+                href="{{ route('movieindex') }}"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-file"></i>
@@ -172,8 +171,7 @@
             </li>
             <li class="menu-item">
               <a
-                href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                target="_blank"
+                href="{{ route('moviecreate') }}"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-crown"></i>

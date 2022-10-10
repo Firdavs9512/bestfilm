@@ -104,7 +104,6 @@ class MovieController extends Controller
         }else{
             $file = $movie->photo;
         }
-        dd($file);
         $movie->update([
             'name' => $request->name,
             'reating' => $request->reating,
