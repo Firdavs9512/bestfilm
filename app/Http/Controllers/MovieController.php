@@ -85,7 +85,8 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = Movie::find($id);
+        return view('movie.edit',compact('movie'));
     }
 
     /**
@@ -97,7 +98,22 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::find($id);
+        if(null !== ($request->file('photo'))){
+            $file = $request->file('photo')->store('images/movies');
+        }else{
+            $file = $movie->photo;
+        }
+        dd($file);
+        $movie->update([
+            'name' => $request->name,
+            'reating' => $request->reating,
+            'date' => $request->date,
+            'filmtime' => $request->filmtime,
+            'photo' => $file,
+            'overview' => $request->overview
+        ]);
+        return redirect('/movie/'.$request->id.'/edit');
     }
 
     /**

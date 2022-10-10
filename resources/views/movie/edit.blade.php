@@ -122,7 +122,7 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-item active ">
+            <li class="menu-item  ">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Layouts">Actior</div>
@@ -207,7 +207,7 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Actior /</span> Edit</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Movie /</span> Edit</h4>
 
               <!-- Basic Layout & Basic with Icons -->
               <div class="row">
@@ -215,44 +215,49 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Actior - {{ $actior->id }}</h5>
+                      <h5 class="mb-0">Movie - {{ $movie->id }}</h5>
                     </div>
                     <div class="card-body">
-                      <form method="POST" action="{{ route('actiorupdate',$actior->id) }}" enctype="multipart/form-data">
+                      <form method="POST" action="{{ route('movieupdate',$movie->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
-                            <input name="name"  value="{{ $actior->name }}" type="text" class="form-control" id="basic-default-name" placeholder="Actior name" />
+                            <input name="name"  value="{{ $movie->name }}" type="text" class="form-control" id="basic-default-name" placeholder="Movie name" />
 
                         </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" >Day of Bird</label>
+                            <label class="col-sm-2 col-form-label" >Film date</label>
                             <div class="col-sm-10">
-                              <input name="date" value="{{ $actior->birdday }}" type="date" class="form-control" />
+                              <input name="date" value="{{ $movie->date }}" type="date" class="form-control" />
 
                             </div>
-                          </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-email">Country</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <input
-                                value="{{ $actior->country }}"
-                                name="country"
-                                type="text"
-                                id="basic-default-email"
-                                class="form-control"
-                                placeholder="Country"
-                                aria-describedby="basic-default-email2"
-                              />
-                            </div>
-
-                          </div>
                         </div>
                         <div class="row mb-3">
-                            <img src="{{ url('storage/'.$actior->photo) }}" alt="">
+                            <label class="col-sm-2 col-form-label" >Reating */10</label>
+                            <div class="col-sm-10">
+                              <input name="reating" value="{{ $movie->reating }}" type="number" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" >Film time</label>
+                            <div class="col-sm-10">
+                              <input name="filmtime" value="{{ $movie->filmtime }}" type="time" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <img src="{{ url('storage/'.$movie->photo) }}" alt="">
+                        </div>
+                        <div class="row mb-3">
+                            <label for="formFile" class="col-sm-2 col-form-label">Movie Image</label>
+                            <div class="col-sm-10">
+                                <input name="photo" class="form-control" type="file" id="formFile">
+                                <div class="form-text">You can use letters, numbers & periods</div>
+                            </div>
+
                         </div>
 
 
@@ -266,25 +271,11 @@
                               placeholder="Overview"
                               aria-label="Overview"
                               aria-describedby="basic-icon-default-message2"
-                            >{{ $actior->overview }}</textarea>
+                            >{{ $movie->overview }}</textarea>
 
                           </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="biographi">Biographi</label>
-                            <div class="col-sm-10">
-                              <textarea
-                                name="biographi"
-                                id="biographi"
-                                class="form-control"
-                                placeholder="Biographi"
-                                aria-label="Biographi"
-                                aria-describedby="basic-icon-default-message2"
-                              >{{ $actior->biographi }}</textarea>
-
-                            </div>
-                          </div>
-                          <div class="mt-3 row">
+                        <div class="mt-3 row">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">Edit</button>
                             </div>
@@ -297,7 +288,7 @@
                             </button>
 
                             <!-- Modal -->
-                            <form action="{{ route('actiorimage', $actior->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="" method="POST" enctype="multipart/form-data">
                                 @csrf
                             <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
                               <div class="modal-dialog" role="document">
@@ -336,7 +327,7 @@
 
                 <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
 
-                    @foreach ($actior->actiorPhotos as $image)
+                    {{-- @foreach ($actior->actiorPhotos as $image)
 
                     <div class="col">
                         <div class="card">
@@ -344,7 +335,7 @@
                         </div>
                     </div>
 
-                    @endforeach
+                    @endforeach --}}
 
 
                   </div>

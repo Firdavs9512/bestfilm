@@ -60,3 +60,5 @@ Route::post('/category/{id}/edit',[CategoryController::class,'update'])->name('c
 Route::get('/movie',[MovieController::class,'index'])->name('movieindex');
 Route::get('/movie/create',[MovieController::class,'create'])->name('moviecreate');
 Route::post('/movie',[MovieController::class,'store'])->name('moviestore');
+Route::get('/movie/{id}/edit',[MovieController::class,'edit'])->name('movieedit');
+Route::post('/movie/{id}/edit',[MovieController::class,'update'])->name('movieupdate');
