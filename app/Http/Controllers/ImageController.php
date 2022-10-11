@@ -16,7 +16,7 @@ class ImageController extends Controller
         $post->actiorPhotos()->create([
             'name' => $file
         ]);
-        return redirect('/actior/'.$id);
+        return redirect('admin/actior/'.$id);
     }
 
     public function movieimage(Request $request, $id)
@@ -26,6 +26,6 @@ class ImageController extends Controller
         $movie->moviephotos()->create([
             'name' => $file
         ]);
-        return redirect('/movie/'.$id.'/edit');
+        return redirect('admin/movie/'.$id.'/edit');
     }
 }

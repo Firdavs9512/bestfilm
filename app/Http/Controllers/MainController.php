@@ -9,12 +9,12 @@ class MainController extends Controller
 {
     public function index()
     {
-        $post = Movie::all();
+        $post = Movie::take(10)->get();
         return view('index.index', compact('post'));
     }
     public function show($id)
     {
-        $post = Movie::find($id);
-        return view('movie.show', compact('post'));
+        $movie = Movie::find($id);
+        return view('index.moviesingle', compact('movie'));
     }
 }

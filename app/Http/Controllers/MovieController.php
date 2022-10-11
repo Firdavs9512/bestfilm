@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actior;
 use App\Models\Category;
 use App\Models\Movie;
 use App\Models\Tag;
@@ -29,7 +30,8 @@ class MovieController extends Controller
     {
         $tags = Tag::all();
         $categories = Category::all();
-        return view('movie.create', compact('tags','categories'));
+        $actiors = Actior::all();
+        return view('movie.create', compact('tags','categories','actiors'));
     }
 
     /**
@@ -61,9 +63,12 @@ class MovieController extends Controller
             {
                 $movies->categories()->attach($category);
             }
+            foreach($request->actiors as $actior){
+                $movies->actiors()->attach($actior);
+            }
         }
 
-        return redirect('/movie');
+        return redirect('admin/movie');
     }
 
     /**

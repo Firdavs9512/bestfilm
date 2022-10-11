@@ -245,7 +245,7 @@
                                 @foreach ($categories as $category)
                               <tr>
                                   <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $category->name }}</strong></td>
-                                    <td><span class="badge bg-label-primary me-1">12</span></td>
+                                    <td><span class="badge bg-label-primary me-1">{{ $category->movies()->count() }}</span></td>
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

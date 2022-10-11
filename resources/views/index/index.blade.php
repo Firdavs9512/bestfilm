@@ -248,7 +248,7 @@
                             <span class="blue"><a href="#">{{ $category->name }}</a></span>
                             @endforeach
 	    				</div>
-	    				<h6><a href="{{ url($movie->id) }}">{{ $movie->name }}</a></h6>
+	    				<h6><a href="{{ url('/movies/'.$movie->id) }}">{{ $movie->name }}</a></h6>
 	    				<p><i class="ion-android-star"></i><span>{{ $movie->reating }}</span> /10</p>
 	    			</div>
 	    		</div>

@@ -327,6 +327,21 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" >Actiors</label>
+
+
+                            <div class="col-sm-10">
+
+                                <select name="actiors[]" class="select form-control" multiple data-mdb-filter="true">
+
+                                    @foreach ($actiors as $actior)
+                                    <option value="{{ $actior->id }}">{{ $actior->name }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Create</button>
