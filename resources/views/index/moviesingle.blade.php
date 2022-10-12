@@ -232,7 +232,7 @@
 </header>
 <!-- END | Header -->
 
-<div class="hero mv-single-hero">
+<div class="hero sr-single-hero">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -249,8 +249,9 @@
 	<div class="container">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
-				<div class="movie-img sticky-sb">
-					<img src="{{ url('storage/'.$movie->photo) }}" alt="">
+				{{-- pasdakini orginali pasa tushikon rasm <div class="movie-img sticky-sb"> --}}
+                <div class="movie-img">
+					<img style="height: 521px" src="{{ url('storage/'.$movie->photo) }}" alt="">
 					<div class="movie-btn">
 						<div class="btn-transform transform-vertical red">
 							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
@@ -309,7 +310,7 @@
 						            	<div class="col-md-8 col-sm-12 col-xs-12">
 						            		<p>{{ $movie->overview }}</p>
 						            		<div class="title-hd-sm">
-												<h4>Videos & Photos</h4>
+												<h4>Videos </h4>
 												<a href="#" class="time">All {{ $movie->moviephotos->count() }} Photos <i class="ion-ios-arrow-right"></i></a>
 											</div>
 											<div class="mvsingle-item ov-item">
@@ -332,7 +333,7 @@
 												<div class="cast-it">
                                                     <div class="cast-left">
                                                         <img style="width: 40px;height:40px;" src="{{ url('storage/'.$actior->photo) }}" alt="">
-														<a href="#">{{ $actior->name }}.</a>
+														<a href="{{ route('actiorpage',$actior->id) }}">{{ $actior->name }}.</a>
 													</div>
 													<p>{{ $actior->birdday }}</p>
 												</div>
@@ -682,7 +683,7 @@
 					       	 			<h3>Related Movies To</h3>
 					       	 			<h2>Skyfall: Quantum of Spectre</h2>
 					       	 			<div class="topbar-filter">
-											<p>Found <span>12 movies</span> in total</p>
+											<p>Last <span>10 movies</span></p>
 											<label>Sort by:</label>
 											<select>
 												<option value="popularity">Popularity Descending</option>
@@ -693,17 +694,20 @@
 												<option value="date">Release date Ascending</option>
 											</select>
 										</div>
+
+                                        @foreach ($films as $film)
 										<div class="movie-item-style-2">
-											<img src="{{ url('images/uploads/mv1.jpg') }}" alt="">
+                                            <img style="width: 170px;height:261px" src="{{ url('storage/'.$film->photo) }}" alt="">
 											<div class="mv-item-infor">
-												<h6><a href="#">oblivion <span>(2012)</span></a></h6>
-												<p class="rate"><i class="ion-android-star"></i><span>8.1</span> /10</p>
-												<p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
-												<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: 1 May 2015</span></p>
+                                                <h6><a href="#">{{ $film->name }} <span>({{ date('Y', strtotime($film->date)); }})</span></a></h6>
+												<p class="rate"><i class="ion-android-star"></i><span>{{ $film->reating }}</span> /10</p>
+												<p class="describe">{{ $film->overview }}</p>
+												<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: {{ date('d M Y', strtotime($film->date)); }}</span></p>
 												<p>Director: <a href="#">Joss Whedon</a></p>
 												<p>Stars: <a href="#">Robert Downey Jr.,</a> <a href="#">Chris Evans,</a> <a href="#">  Chris Hemsworth</a></p>
 											</div>
 										</div>
+                                        @endforeach
 										<div class="movie-item-style-2">
 											<img src="{{ url('images/uploads/mv2.jpg') }}" alt="">
 											<div class="mv-item-infor">

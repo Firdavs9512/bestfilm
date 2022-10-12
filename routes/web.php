@@ -20,9 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[MainController::class,'index']);
-Route::get('/movies/{id}',[MainController::class, 'show']);
 
+//indexga oid fayllar
+Route::get('/',[MainController::class,'index']);
+Route::get('/movies/{id}',[MainController::class, 'show'])->name('moviepage');
+//actior overview page
+Route::get('actior/{id}',[MainController::class,'actiorshow'])->name('actiorpage');
+Route::get('/movie-list',[MainController::class,'allmovielist'])->name('allmovielist');
 
 Route::group(['prefix'=>'admin'], function(){
 
