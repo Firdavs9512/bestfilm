@@ -37,7 +37,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'required',
+            'username' => 'required|unique:users',
             'email' => 'required|email',
             'password' =>'required'
         ]);
@@ -54,7 +54,7 @@ class UserController extends Controller
             'password' => $request->password
         ]);
         $data->save();
-        return redirect('/user');
+        return redirect('admin/user');
 
     }
 
@@ -118,7 +118,7 @@ class UserController extends Controller
             'photo' => $file,
             'password' => $password
         ]);
-        return redirect('/user');
+        return redirect('admin/user');
     }
 
     /**

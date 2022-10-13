@@ -247,7 +247,7 @@
                                 @foreach ($actiors as $actior)
                               <tr>
                                   <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $actior->name }}</strong></td>
-                                  <td>{{ $actior->overview }}</td>
+                                  <td>{{ Str::limit($actior->overview,20,'(...)') }}</td>
                                   <td>
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="{{ $actior->name }}">

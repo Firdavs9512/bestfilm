@@ -50,7 +50,9 @@ class MovieController extends Controller
             'photo' => 'required|image',
             'filmtime' => 'required',
             'reating' => 'required|integer|max:10',
-            'categories' => 'required|array|max:3'
+            'categories' => 'required|array|max:3',
+            'mmpa' => 'required',
+            'url' => 'url'
         ]);
         //dd($request->tags);
         $file = $request->file('photo')->store('images/movies');
@@ -60,7 +62,11 @@ class MovieController extends Controller
             'overview' => $request->overview,
             'date' => $request->date,
             'reating' => $request->reating,
-            'filmtime' => $request->filmtime
+            'filmtime' => $request->filmtime,
+            'mmpa' => $request->mmpa,
+            'telegram' => $request->telegram,
+            'url' => $request->url,
+            'director' =>$request->director,
         ]);
         $movies->save();
         if(isset($request->tags) and isset($request->categories)){

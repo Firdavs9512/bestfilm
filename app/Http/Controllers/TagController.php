@@ -43,7 +43,7 @@ class TagController extends Controller
             'name' => $request->name
         ]);
         $data->save();
-        return redirect('/tag');
+        return redirect('admin/tag');
     }
 
     /**
@@ -85,7 +85,7 @@ class TagController extends Controller
         $tag->update([
             'name' => $request->name
         ]);
-        return redirect('/tag');
+        return redirect('admin/tag');
     }
 
     /**

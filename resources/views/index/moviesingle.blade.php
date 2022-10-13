@@ -377,15 +377,7 @@
 						            	<div class="col-md-4 col-xs-12 col-sm-12">
 						            		<div class="sb-it">
 						            			<h6>Director: </h6>
-						            			<p><a href="#">Joss Whedon</a></p>
-						            		</div>
-						            		<div class="sb-it">
-						            			<h6>Writer: </h6>
-						            			<p><a href="#">Joss Whedon,</a> <a href="#">Stan Lee</a></p>
-						            		</div>
-						            		<div class="sb-it">
-						            			<h6>Stars: </h6>
-						            			<p><a href="#">Robert Downey Jr,</a> <a href="#">Chris Evans,</a> <a href="#">Mark Ruffalo,</a><a href="#"> Scarlett Johansson</a></p>
+						            			<p><a>{{ $movie->director }}</a></p>
 						            		</div>
 						            		<div class="sb-it">
 						            			<h6>Genres:</h6>
@@ -405,7 +397,7 @@
 						            		</div>
 						            		<div class="sb-it">
 						            			<h6>MMPA Rating:</h6>
-						            			<p>PG-13</p>
+						            			<p>{{ $movie->mmpa }}</p>
 						            		</div>
 						            		<div class="sb-it">
 						            			<h6>Plot Keywords:</h6>

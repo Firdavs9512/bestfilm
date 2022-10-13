@@ -42,7 +42,7 @@ class ActiorController extends Controller
             'name' => 'required',
             'country' => 'required',
             'biographi' => 'required',
-            'date' => 'required|date',
+            'birdday' => 'required|date',
             'photo' => 'image|required'
         ]);
         $file = $request->file('photo')->store('images/actiors');
@@ -52,7 +52,7 @@ class ActiorController extends Controller
             'photo' => $file,
             'country' => $request->country,
             'biographi' => $request->biographi,
-            'birdday' => $request->date
+            'birdday' => $request->birdday
         ]);
         $data->save();
         return redirect('admin/actior');
@@ -95,14 +95,14 @@ class ActiorController extends Controller
             'name' => 'required',
             'country' => 'required',
             'overview' => 'required',
-            'date' => 'required',
+            'birdday' => 'required',
             'biographi' => 'required',
         ]);
         $actior = Actior::find($id);
         $actior->update([
             'name' => $request->name,
             'country' => $request->country,
-            'birdday' => $request->date,
+            'birdday' => $request->birdday,
             'overview' => $request->overview,
             'biographi' => $request->biographi
         ]);

@@ -249,7 +249,7 @@
                             <label class="col-sm-2 col-form-label" >Day of Bird</label>
                             <div class="col-sm-10">
                               <input name="birdday" type="date" class="form-control" />
-                              @error('date')
+                              @error('birdday')
                               <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
                               @enderror
                             </div>
