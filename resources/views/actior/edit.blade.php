@@ -240,14 +240,18 @@
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
                             <input name="name"  value="{{ $actior->name }}" type="text" class="form-control" id="basic-default-name" placeholder="Actior name" />
-
+                            @error('name')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                         </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Day of Bird</label>
                             <div class="col-sm-10">
                               <input name="date" value="{{ $actior->birdday }}" type="date" class="form-control" />
-
+                              @error('date')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                             </div>
                           </div>
                         <div class="row mb-3">
@@ -264,7 +268,9 @@
                                 aria-describedby="basic-default-email2"
                               />
                             </div>
-
+                            @error('country')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -283,7 +289,9 @@
                               aria-label="Overview"
                               aria-describedby="basic-icon-default-message2"
                             >{{ $actior->overview }}</textarea>
-
+                            @error('overview')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -297,7 +305,9 @@
                                 aria-label="Biographi"
                                 aria-describedby="basic-icon-default-message2"
                               >{{ $actior->biographi }}</textarea>
-
+                              @error('biographi')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                             </div>
                           </div>
                           <div class="mt-3 row">
@@ -327,7 +337,10 @@
                                     <div class="row">
                                       <div class="col mb-3">
                                         <label for="nameBasic" class="form-label">Select image</label>
-                                        <input name="photo" class="form-control" type="file" id="nameBasic">
+                                        <input name="photos" class="form-control" type="file" id="nameBasic">
+                                        @error('photos')
+                                        <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                                        @enderror
                                       </div>
                                     </div>
 

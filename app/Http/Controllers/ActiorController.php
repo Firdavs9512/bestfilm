@@ -37,6 +37,14 @@ class ActiorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'overview' => 'required',
+            'name' => 'required',
+            'country' => 'required',
+            'biographi' => 'required',
+            'date' => 'required|date',
+            'photo' => 'image|required'
+        ]);
         $file = $request->file('photo')->store('images/actiors');
         $data = new Actior([
             'name' => $request->name,
@@ -47,7 +55,7 @@ class ActiorController extends Controller
             'birdday' => $request->date
         ]);
         $data->save();
-        return redirect('/actior');
+        return redirect('admin/actior');
     }
 
     /**
@@ -83,6 +91,13 @@ class ActiorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'country' => 'required',
+            'overview' => 'required',
+            'date' => 'required',
+            'biographi' => 'required',
+        ]);
         $actior = Actior::find($id);
         $actior->update([
             'name' => $request->name,
@@ -91,7 +106,7 @@ class ActiorController extends Controller
             'overview' => $request->overview,
             'biographi' => $request->biographi
         ]);
-        return redirect('actior/'.$id);
+        return redirect('admin/actior/'.$id);
     }
 
     /**

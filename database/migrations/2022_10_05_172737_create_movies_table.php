@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('mmpa');
             $table->string('director')->nullable();
             $table->string('url')->nullable();
-            $table->string('telagram')->nullable();
+            $table->string('telegram')->nullable();
             $table->date('date');
             $table->string('photo');
             $table->text('overview');

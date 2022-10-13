@@ -240,14 +240,18 @@
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
                             <input type="text" name="name" class="form-control" id="basic-default-name" placeholder="Actior name" />
-                            <div class="form-text">You can use letters, numbers & periods</div>
+                            @error('name')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                         </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Day of Bird</label>
                             <div class="col-sm-10">
-                              <input name="date" type="date" class="form-control" />
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              <input name="birdday" type="date" class="form-control" />
+                              @error('date')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                             </div>
                           </div>
                         <div class="row mb-3">
@@ -263,14 +267,18 @@
                                 aria-describedby="basic-default-email2"
                               />
                             </div>
-                            <div class="form-text">You can use letters, numbers & periods</div>
+                            @error('country')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                           </div>
                         </div>
                         <div class="row mb-3">
                             <label for="formFile" class="col-sm-2 col-form-label">Actior Image</label>
                             <div class="col-sm-10">
                                 <input name="photo" class="form-control" type="file" id="formFile">
-                                <div class="form-text">You can use letters, numbers & periods</div>
+                                @error('photo')
+                                    <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                                @enderror
                             </div>
 
                           </div>
@@ -286,7 +294,9 @@
                               aria-label="Overview"
                               aria-describedby="basic-icon-default-message2"
                             ></textarea>
-                            <div class="form-text">You can use letters, numbers & periods</div>
+                            @error('overview')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -300,7 +310,9 @@
                                 aria-label="Biographi"
                                 aria-describedby="basic-icon-default-message2"
                               ></textarea>
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              @error('biographi')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
                             </div>
                           </div>
                         <div class="row justify-content-end">

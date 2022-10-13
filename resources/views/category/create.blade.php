@@ -240,7 +240,10 @@
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
                             <input name="name" type="text" class="form-control" id="basic-default-name" placeholder="Category name" />
-                          </div>
+                            @error('name')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
+                        </div>
                         </div>
 
 

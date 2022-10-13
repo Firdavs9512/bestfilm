@@ -36,12 +36,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
         //dd($request);
         $data = new Category([
             'name' => $request->name
         ]);
         $data->save();
-        return redirect('/category');
+        return redirect('admin/category');
     }
 
     /**
@@ -76,12 +79,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
         //dd($request);
         $category = Category::find($id);
         $category->update([
             'name' => $request->name
         ]);
-        return redirect('/category');
+        return redirect('admin/category');
     }
 
     /**

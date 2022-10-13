@@ -240,28 +240,72 @@
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
                             <input name="name"  value="{{ $movie->name }}" type="text" class="form-control" id="basic-default-name" placeholder="Movie name" />
-
+                            @error('name')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                         </div>
                         </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-director">Director</label>
+                            <div class="col-sm-10">
+                              <input name="director"  value="{{ $movie->director }}" type="text" class="form-control" id="basic-default-director" placeholder="Director name" />
+                              @error('director')
+                                <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-url">Film Url</label>
+                            <div class="col-sm-10">
+                              <input name="url"  value="{{ $movie->url }}" type="text" class="form-control" id="basic-default-url" placeholder="Movie url" />
+                              @error('url')
+                                <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-tgels">Telegram</label>
+                            <div class="col-sm-10">
+                              <input name="telegram"  value="{{ $movie->telegram }}" type="text" class="form-control" id="basic-default-tgels" placeholder="Telegram channel" />
+                              @error('telegram')
+                                <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-retingd">Reting</label>
+                            <div class="col-sm-10">
+                              <input name="mmpa"  value="{{ $movie->mmpa }}" type="text" class="form-control" id="basic-default-retingd" placeholder="Movie reting" />
+                              @error('mmpa')
+                                <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                              @enderror
+                          </div>
+                          </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Film date</label>
                             <div class="col-sm-10">
                               <input name="date" value="{{ $movie->date }}" type="date" class="form-control" />
-
+                              @error('date')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Reating */10</label>
                             <div class="col-sm-10">
                               <input name="reating" value="{{ $movie->reating }}" type="number" class="form-control" />
-
+                              @error('reating')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Film time</label>
                             <div class="col-sm-10">
                               <input name="filmtime" value="{{ $movie->filmtime }}" type="time" class="form-control" />
-
+                              @error('filmtime')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -271,7 +315,9 @@
                             <label for="formFile" class="col-sm-2 col-form-label">Movie Image</label>
                             <div class="col-sm-10">
                                 <input name="photo" class="form-control" type="file" id="formFile">
-                                <div class="form-text">You can use letters, numbers & periods</div>
+                                @error('photo')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                             </div>
 
                         </div>
@@ -288,7 +334,9 @@
                               aria-label="Overview"
                               aria-describedby="basic-icon-default-message2"
                             >{{ $movie->overview }}</textarea>
-
+                            @error('overview')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                           </div>
                         </div>
                         <div class="mt-3 row">
@@ -318,7 +366,10 @@
                                     <div class="row">
                                       <div class="col mb-3">
                                         <label for="nameBasic" class="form-label">Select image</label>
-                                        <input name="photo" class="form-control" type="file" id="nameBasic">
+                                        <input name="photos" class="form-control" type="file" id="nameBasic">
+                                        @error('photos')
+                                        <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                                        @enderror
                                       </div>
                                     </div>
 

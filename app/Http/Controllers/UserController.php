@@ -36,6 +36,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'password' =>'required'
+        ]);
         if(isset($request->photo)){
             $file = $request->file('photo')->store('images/users');
         }
@@ -86,6 +91,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //dd($request);
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+            'email' => 'required|email'
+        ]);
 
         $user = User::find($id);
         if(isset($request->photo)){

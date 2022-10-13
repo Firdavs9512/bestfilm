@@ -28,6 +28,7 @@ class MovieController extends Controller
      */
     public function create()
     {
+
         $tags = Tag::all();
         $categories = Category::all();
         $actiors = Actior::all();
@@ -42,6 +43,15 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' =>'required',
+            'overview' => 'required',
+            'date' => 'required|date',
+            'photo' => 'required|image',
+            'filmtime' => 'required',
+            'reating' => 'required|integer|max:10',
+            'categories' => 'required|array|max:3'
+        ]);
         //dd($request->tags);
         $file = $request->file('photo')->store('images/movies');
         $movies = new Movie([
@@ -103,6 +113,15 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' =>'required',
+            'overview' => 'required',
+            'date' => 'required|date',
+            'photo' => 'image',
+            'filmtime' => 'required',
+            'reating' => 'required|integer|max:10',
+        ]);
+
         $movie = Movie::find($id);
         if(null !== ($request->file('photo'))){
             $file = $request->file('photo')->store('images/movies');
@@ -117,7 +136,7 @@ class MovieController extends Controller
             'photo' => $file,
             'overview' => $request->overview
         ]);
-        return redirect('/movie/'.$request->id.'/edit');
+        return redirect('admin/movie/'.$request->id.'/edit');
     }
 
     /**

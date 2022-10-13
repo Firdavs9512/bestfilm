@@ -252,20 +252,27 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-username">UserName *</label>
                             <div class="col-sm-10">
                               <input name="username" type="text" class="form-control" id="basic-default-username" placeholder="Username" />
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              @error('username')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-coun">Country</label>
                             <div class="col-sm-10">
                               <input name="country" type="text" class="form-control" id="basic-default-coun" placeholder="Country" />
+                              @error('country')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="formFile" class="col-sm-2 col-form-label">User Image</label>
                             <div class="col-sm-10">
                                 <input name="photo" class="form-control" type="file" id="formFile">
-                                <div class="form-text">You can use letters, numbers & periods</div>
+                                @error('photo')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
 
                           </div>
@@ -273,14 +280,18 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-email">Email *</label>
                             <div class="col-sm-10">
                               <input name="email" type="email" class="form-control" id="basic-default-email" placeholder="Email" />
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              @error('email')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-pass">Password *</label>
                             <div class="col-sm-10">
                               <input name="password" type="text" class="form-control" id="basic-default-pass" placeholder="Password" />
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              @error('password')
+                              <div style="color: rgb(212, 45, 45)" class="form-text c-red">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
 

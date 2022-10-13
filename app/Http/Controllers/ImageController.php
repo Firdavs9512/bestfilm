@@ -11,8 +11,11 @@ class ImageController extends Controller
 {
     public function image($id,Request $request)
     {
+        $request->validate([
+            'photos'=> 'required|image'
+        ]);
         $post = Actior::find($id);
-        $file = $request->file('photo')->store('images/actiors');
+        $file = $request->file('photos')->store('images/actiors');
         $post->actiorPhotos()->create([
             'name' => $file
         ]);
@@ -21,8 +24,11 @@ class ImageController extends Controller
 
     public function movieimage(Request $request, $id)
     {
+        $request->validate([
+            'photos' => 'required|image'
+        ]);
         $movie = Movie::find($id);
-        $file = $request->file('photo')->store('images/movies');
+        $file = $request->file('photos')->store('images/movies');
         $movie->moviephotos()->create([
             'name' => $file
         ]);

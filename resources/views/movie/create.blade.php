@@ -240,21 +240,63 @@
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                           <div class="col-sm-10">
                             <input type="text" name="name" class="form-control" id="basic-default-name" placeholder="Movie name" />
-                            <div class="form-text">You can use letters, numbers & periods</div>
+                            @error('name')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                         </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-defalt-director">Director name</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="director" class="form-control" id="basic-defalt-director" placeholder="Movie name" />
+                              @error('director')
+                                <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-url">Film Url</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="url" class="form-control" id="basic-default-url" placeholder="Movie name" />
+                              @error('url')
+                                <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-defaul-telegram">Telegram</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="telegram" class="form-control" id="basic-defaul-telegram" placeholder="Telegram" />
+                              @error('telegram')
+                                <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-reing">Reting</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="mmpa" class="form-control" id="basic-default-reing" placeholder="Movie name" />
+                              @error('mmpa')
+                                <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                              @enderror
+                          </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Film Date</label>
                             <div class="col-sm-10">
                               <input name="date" type="date" class="form-control" />
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              @error('date')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
                           </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Film Time</label>
                             <div class="col-sm-10">
                               <input name="filmtime" type="time" class="form-control" />
-                              <div class="form-text">You can use letters, numbers & periods</div>
+                              @error('filmtime')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -270,14 +312,18 @@
                                 aria-describedby="basic-default-email2"
                               />
                             </div>
-                            <div class="form-text">You can use letters, numbers & periods</div>
+                            @error('reating')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                           </div>
                         </div>
                         <div class="row mb-3">
                             <label for="formFile" class="col-sm-2 col-form-label">Movie Image</label>
                             <div class="col-sm-10">
                                 <input name="photo" class="form-control" type="file" id="formFile">
-                                <div class="form-text">You can use letters, numbers & periods</div>
+                                @error('photo')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
 
                           </div>
@@ -293,14 +339,14 @@
                               aria-label="Overview"
                               aria-describedby="basic-icon-default-message2"
                             ></textarea>
-                            <div class="form-text">You can use letters, numbers & periods</div>
+                            @error('overview')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                           </div>
                         </div>
 
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" >Categories MAX-3</label>
-
-
                             <div class="col-sm-10">
 
                                 <select name="categories[]" class="select form-control" multiple data-mdb-filter="true">
@@ -310,6 +356,9 @@
                                     @endforeach
 
                                 </select>
+                                @error('categories')
+                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
