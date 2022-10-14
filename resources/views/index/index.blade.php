@@ -328,21 +328,28 @@
 					            			</div>
 					            		</div>
 				            		</div>
+
+                                    @foreach ($pupul as $movie)
 									<div class="slide-it">
-										<div class="movie-item">
-					            			<div class="mv-img">
-					            				<img src="images/uploads/mv-item2.jpg" alt="" width="185" height="284">
+                                        <div class="movie-item">
+                                            <div class="mv-img">
+                                                <img style="height: 100%" src="{{ url('storage/'.$movie->photo) }}" alt="" width="185" height="284">
 					            			</div>
 					            			<div class="hvr-inner">
-					            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                <a  href="{{ route('moviepage',$movie->id) }}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 					            			</div>
 					            			<div class="title-in">
-					            				<h6><a href="#">The revenant</a></h6>
-					            				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                <h6><a href="{{ route('moviepage',$movie->id) }}">{{ $movie->name }}</a></h6>
+					            				<p><i class="ion-android-star"></i><span>{{ $movie->reating }}</span> /10</p>
 					            			</div>
 					            		</div>
 									</div>
-				            		<div class="slide-it">
+                                    @if ($loop->index > 10)
+                                        @break
+                                    @endif
+                                    @endforeach
+
+                                    <div class="slide-it">
 				            			<div class="movie-item">
 					            			<div class="mv-img">
 					            				<img src="images/uploads/mv-item3.jpg" alt="" width="185" height="284">
@@ -460,20 +467,27 @@
 					            			</div>
 					            		</div>
 				            		</div>
+
+                                    @foreach ($pupul2 as $movie)
 									<div class="slide-it">
-										<div class="movie-item">
-					            			<div class="mv-img">
-					            				<img src="images/uploads/mv-item6.jpg" alt="" width="185" height="284">
+                                        <div class="movie-item">
+                                            <div class="mv-img">
+                                                <img style="height: 100%" src="{{ url('storage/'.$movie->photo) }}" alt="" width="185" height="284">
 					            			</div>
 					            			<div class="hvr-inner">
-					            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                <a  href="{{ route('moviepage',$movie->id) }}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 					            			</div>
 					            			<div class="title-in">
-					            				<h6><a href="#">The revenant</a></h6>
-					            				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                <h6><a href="{{ route('moviepage',$movie->id) }}">{{ $movie->name }}</a></h6>
+					            				<p><i class="ion-android-star"></i><span>{{ $movie->reating }}</span> /10</p>
 					            			</div>
 					            		</div>
 									</div>
+                                    @if ($loop->index > 10)
+                                        @break
+                                    @endif
+                                    @endforeach
+
 				            		<div class="slide-it">
 				            			<div class="movie-item">
 					            			<div class="mv-img">
@@ -536,21 +550,28 @@
 					            			</div>
 					            		</div>
 				            		</div>
+
+                                    @foreach ($pupul3 as $movie)
 									<div class="slide-it">
-										<div class="movie-item">
-					            			<div class="mv-img">
-					            				<img src="images/uploads/mv-item2.jpg" alt="" width="185" height="284">
+                                        <div class="movie-item">
+                                            <div class="mv-img">
+                                                <img style="height: 100%;width:100%" src="{{ url('storage/'.$movie->photo) }}" alt="" width="185" height="284">
 					            			</div>
 					            			<div class="hvr-inner">
-					            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                <a  href="{{ route('moviepage',$movie->id) }}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 					            			</div>
 					            			<div class="title-in">
-					            				<h6><a href="#">The revenant</a></h6>
-					            				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                                <h6><a href="{{ route('moviepage',$movie->id) }}">{{ $movie->name }}</a></h6>
+					            				<p><i class="ion-android-star"></i><span>{{ $movie->reating }}</span> /10</p>
 					            			</div>
 					            		</div>
 									</div>
-				            		<div class="slide-it">
+                                    @if ($loop->index > 10)
+                                        @break
+                                    @endif
+                                    @endforeach
+
+                                    <div class="slide-it">
 				            			<div class="movie-item">
 					            			<div class="mv-img">
 					            				<img src="images/uploads/mv-item3.jpg" alt="" width="185" height="284">
@@ -1125,34 +1146,17 @@
 					</div>
 					<div class="celebrities">
 						<h4 class="sb-title">Spotlight Celebrities</h4>
+
+                        @foreach ($actiors as $actior)
 						<div class="celeb-item">
-							<a href="#"><img src="images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
+                            <a href="#"><img style="width: 70px;height:70px" src="{{ url('storage/'.$actior->photo) }}" alt="" width="70" height="70"></a>
 							<div class="celeb-author">
-								<h6><a href="#">Samuel N. Jack</a></h6>
-								<span>Actor</span>
+                                <h6><a href="#">{{ $actior->name }}</a></h6>
+								<span>{{ $actior->birdday }}</span>
 							</div>
 						</div>
-						<div class="celeb-item">
-							<a href="#"><img src="images/uploads/ava2.jpg" alt="" width="70" height="70"></a>
-							<div class="celeb-author">
-								<h6><a href="#">Benjamin Carroll</a></h6>
-								<span>Actor</span>
-							</div>
-						</div>
-						<div class="celeb-item">
-							<a href="#"><img src="images/uploads/ava3.jpg" alt="" width="70" height="70"></a>
-							<div class="celeb-author">
-								<h6><a href="#">Beverly Griffin</a></h6>
-								<span>Actor</span>
-							</div>
-						</div>
-						<div class="celeb-item">
-							<a href="#"><img src="images/uploads/ava4.jpg" alt="" width="70" height="70"></a>
-							<div class="celeb-author">
-								<h6><a href="#">Justin Weaver</a></h6>
-								<span>Actor</span>
-							</div>
-						</div>
+                        @endforeach
+
 						<a href="#" class="btn">See all celebrities<i class="ion-ios-arrow-right"></i></a>
 					</div>
 				</div>
@@ -1161,113 +1165,6 @@
 	</div>
 </div>
 
-<!-- latest new v1 section-->
-<div class="latestnew">
-	<div class="container">
-		<div class="row ipad-width">
-			<div class="col-md-8">
-				<div class="ads">
-					<img src="images/uploads/ads2.png" alt="" width="728" height="106">
-				</div>
-				<div class="title-hd">
-					<h2>Latest news</h2>
-				</div>
-				<div class="tabs">
-					<ul class="tab-links-3">
-						<li class="active"><a href="#tab31">#Movies </a></li>
-						<li><a href="#tab32"> #TV Shows </a></li>
-						<li><a href="#tab33">  # Celebs</a></li>
-					</ul>
-				    <div class="tab-content">
-				        <div id="tab31" class="tab active">
-				            <div class="row">
-				            	<div class="blog-item-style-1">
-				            		<img src="images/uploads/blog-it1.jpg" alt="" width="170" height="250">
-				            		<div class="blog-it-infor">
-				            			<h3><a href="#">Brie Larson to play first female white house candidate Victoria Woodull in Amazon film</a></h3>
-				            			<span class="time">13 hours ago</span>
-				            			<p>Exclusive: <span>Amazon Studios </span>has acquired Victoria Woodhull, with Oscar winning Room star <span>Brie Larson</span> polsed to produce, and play the first female candidate for the presidency of the United States. Amazon bought it in a pitch package deal. <span> Ben Kopit</span>, who wrote the Warner Bros film <span>Libertine</span> that has...</p>
-				            		</div>
-				            	</div>
-				            </div>
-				        </div>
-				        <div id="tab32" class="tab">
-				           <div class="row">
-				            	<div class="blog-item-style-1">
-				            		<img src="images/uploads/blog-it2.jpg" alt="" width="170" height="250">
-				            		<div class="blog-it-infor">
-				            			<h3><a href="#">Tab 2</a></h3>
-				            			<span class="time">13 hours ago</span>
-				            			<p>Exclusive: <span>Amazon Studios </span>has acquired Victoria Woodhull, with Oscar winning Room star <span>Brie Larson</span> polsed to produce, and play the first female candidate for the presidency of the United States. Amazon bought it in a pitch package deal. <span> Ben Kopit</span>, who wrote the Warner Bros film <span>Libertine</span> that has...</p>
-				            		</div>
-				            	</div>
-				            </div>
-				        </div>
-				        <div id="tab33" class="tab">
-				        	<div class="row">
-				            	<div class="blog-item-style-1">
-				            		<img src="images/uploads/blog-it1.jpg" alt="" width="170" height="250">
-				            		<div class="blog-it-infor">
-				            			<h3><a href="#">Tab 3</a></h3>
-				            			<span class="time">13 hours ago</span>
-				            			<p>Exclusive: <span>Amazon Studios </span>has acquired Victoria Woodhull, with Oscar winning Room star <span>Brie Larson</span> polsed to produce, and play the first female candidate for the presidency of the United States. Amazon bought it in a pitch package deal. <span> Ben Kopit</span>, who wrote the Warner Bros film <span>Libertine</span> that has...</p>
-				            		</div>
-				            	</div>
-				            </div>
-			       	 	</div>
-				    </div>
-				</div>
-				<div class="morenew">
-					<div class="title-hd">
-						<h3>More news on Blockbuster</h3>
-						<a href="#" class="viewall">See all Movies news<i class="ion-ios-arrow-right"></i></a>
-					</div>
-					<div class="more-items">
-						<div class="left">
-							<div class="more-it">
-								<h6><a href="#">Michael Shannon Frontrunner to play Cable in “Deadpool 2”</a></h6>
-								<span class="time">13 hours ago</span>
-							</div>
-							<div class="more-it">
-								<h6><a href="#">French cannibal horror “Raw” inspires L.A. theater to hand out “Barf Bags”</a></h6>
-
-								<span class="time">13 hours ago</span>
-							</div>
-						</div>
-						<div class="right">
-							<div class="more-it">
-								<h6><a href="#">Laura Dern in talks to join Justin Kelly’s biopic “JT Leroy”</a></h6>
-								<span class="time">13 hours ago</span>
-							</div>
-							<div class="more-it">
-								<h6><a href="#">China punishes more than 300 cinemas for box office cheating</a></h6>
-								<span class="time">13 hours ago</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="sidebar">
-					<div class="sb-facebook sb-it">
-						<h4 class="sb-title">Find us on Facebook</h4>
-						<iframe src="#" data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftemplatespoint.net%2F%3Ffref%3Dts&tabs=timeline&width=300&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="300" height="315" style="border:none;overflow:hidden" ></iframe>
-					</div>
-					<div class="sb-twitter sb-it">
-						<h4 class="sb-title">Tweet to us</h4>
-						<div class="slick-tw">
-							<div class="tweet item" id=""><!-- Put your twiter id here -->
-							</div>
-							<div class="tweet item" id=""><!-- Put your 2nd twiter account id here -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--end of latest new v1 section-->
 <!-- footer section-->
 <footer class="ht-footer">
 	<div class="container">

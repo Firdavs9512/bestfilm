@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('director')->nullable();
             $table->string('url')->nullable();
             $table->string('telegram')->nullable();
+            $table->integer('views')->default(0);
             $table->date('date');
             $table->string('photo');
             $table->text('overview');
