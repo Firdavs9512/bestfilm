@@ -55,7 +55,9 @@ class ActiorController extends Controller
             'birdday' => $request->birdday
         ]);
         $data->save();
-        return redirect('admin/actior');
+        return redirect('admin/actior')->with(
+            'success' , 'Actior is created!'
+        );
     }
 
     /**

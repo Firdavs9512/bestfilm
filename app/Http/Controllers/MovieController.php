@@ -84,7 +84,9 @@ class MovieController extends Controller
             }
         }
 
-        return redirect('admin/movie');
+        return redirect('admin/movie')->with(
+            'success' , 'Movie is created!'
+        );
     }
 
     /**

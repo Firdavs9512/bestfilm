@@ -64,6 +64,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/category/create',[CategoryController::class, 'create'])->name('categorycreate');
     Route::get('/category/{id}/edit',[CategoryController::class,'edit'])->name('categoryedit');
     Route::post('/category/{id}/edit',[CategoryController::class,'update'])->name('categoryupdate');
+    Route::delete('/category/{id}/delete',[CategoryController::class,'destroy'])->name('categorydelete');
 
 
     //Route::resource('/movie', MovieController::class);

@@ -44,7 +44,9 @@ class CategoryController extends Controller
             'name' => $request->name
         ]);
         $data->save();
-        return redirect('admin/category');
+        return redirect('admin/category')->with(
+            'success' , 'Category is created!'
+        );
     }
 
     /**
@@ -87,7 +89,9 @@ class CategoryController extends Controller
         $category->update([
             'name' => $request->name
         ]);
-        return redirect('admin/category');
+        return redirect('admin/category')->with(
+            'success' , 'Category is edited!'
+        );
     }
 
     /**
@@ -98,6 +102,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('categoryindex')->with('success','Category is deleted!');
     }
 }

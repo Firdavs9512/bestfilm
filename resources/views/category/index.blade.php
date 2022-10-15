@@ -232,6 +232,36 @@
                     <div class="card">
                         <h5 class="card-header">Categories list</h5>
                         <div class="table-responsive text-nowrap">
+                            <!-- Small Modal -->
+                      <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-sm " role="document">
+                          <div class="modal-content alert-primary">
+                            <div class="modal-header">
+                              <h5 class="modal-title text-danger" id="exampleModalLabel2">Warning</h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col mb-0">
+                                    <h5 class="mb-0">Deleted this Category</h5>
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                No
+                              </button>
+                              <button type="button" class="btn btn-danger">Yes delete</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                           <table class="table">
                             <thead class="table-light">
                               <tr>
@@ -253,7 +283,10 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="{{ route('categoryedit',$category->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                <button data-bs-toggle="modal"
+                                                data-bs-target="#smallModal"
+                                                class="dropdown-item"
+                                                ><i class="bx bx-trash me-1"></i> Delete</button>
                                             </div>
                                         </div>
                                     </td>
@@ -285,5 +318,108 @@
               </div>
             </div>
             <!-- / Content -->
+
+
+
+
+@if ($message = Session::get('success'))
+
+<!-- Toast with Placements -->
+<div
+class="bs-toast toast toast-placement-ex m-2"
+role="alert"
+aria-live="assertive"
+aria-atomic="true"
+data-delay="2000"
+>
+<div class="toast-header">
+  <i class="bx bx-bell me-2"></i>
+  <div class="me-auto fw-semibold">BestFilm</div>
+  <small>Now</small>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body">{{ $message }}</div>
+</div>
+<!-- Toast with Placements -->
+<div style="display: none">
+    <label class="form-label" for="selectTypeOpt">Type</label>
+    <select id="selectTypeOpt" class="form-select color-dropdown">
+      <option value="bg-primary" selected>Primary</option>
+      <option value="bg-secondary">Secondary</option>
+      <option value="bg-success">Success</option>
+      <option value="bg-danger">Danger</option>
+      <option value="bg-warning">Warning</option>
+      <option value="bg-info">Info</option>
+      <option value="bg-dark">Dark</option>
+    </select>
+  </div>
+  <div style="display: none">
+    <label class="form-label" for="selectPlacement">Placement</label>
+    <select class="form-select placement-dropdown" id="selectPlacement">
+      <option value="top-0 end-0">Top right</option>
+    </select>
+</div>
+<div style="display:none">
+    <label class="form-label" for="showToastPlacement">&nbsp;</label>
+    <button id="showToastPlacement" class="btn btn-primary d-block">Show Toast</button>
+  </div>
+
+<script>
+/**
+ * UI Toasts
+ */
+
+ 'use strict';
+
+(function () {
+  // Bootstrap toasts example
+  // --------------------------------------------------------------------
+  const toastPlacementExample = document.querySelector('.toast-placement-ex'),
+    toastPlacementBtn = document.querySelector('#showToastPlacement');
+  let selectedType, selectedPlacement, toastPlacement;
+
+  // Dispose toast when open another
+  function toastDispose(toast) {
+    if (toast && toast._element !== null) {
+        if (toastPlacementExample) {
+            toastPlacementExample.classList.remove(selectedType);
+            DOMTokenList.prototype.remove.apply(toastPlacementExample.classList, selectedPlacement);
+      }
+      toast.dispose();
+    }
+  }
+  window.onload = function(){
+  document.getElementById('showToastPlacement').click();
+}
+
+  // Placement Button click
+  if (toastPlacementBtn) {
+      toastPlacementBtn.onclick = function () {
+      if (toastPlacement) {
+        toastDispose(toastPlacement);
+      }
+      selectedType = "bg-primary";
+      selectedPlacement = document.querySelector('#selectPlacement').value.split(' ');
+
+      toastPlacementExample.classList.add(selectedType);
+      DOMTokenList.prototype.add.apply(toastPlacementExample.classList, selectedPlacement);
+      toastPlacement = new bootstrap.Toast(toastPlacementExample);
+      toastPlacement.show();
+    };
+  }
+
+
+
+})();
+
+
+
+</script>
+
+@endif
+
+
+<!-- Page JS -->
+<script src="../assets/js/ui-modals.js"></script>
 
 @include('layauts.adminfooter')

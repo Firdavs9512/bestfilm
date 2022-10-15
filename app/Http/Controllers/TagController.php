@@ -43,7 +43,9 @@ class TagController extends Controller
             'name' => $request->name
         ]);
         $data->save();
-        return redirect('admin/tag');
+        return redirect('admin/tag')->with(
+            'success' , 'Tag is created!'
+        );
     }
 
     /**

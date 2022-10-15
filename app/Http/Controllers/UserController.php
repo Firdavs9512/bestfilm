@@ -54,7 +54,9 @@ class UserController extends Controller
             'password' => $request->password
         ]);
         $data->save();
-        return redirect('admin/user');
+        return redirect('admin/user')->with(
+            'success' , 'User is created!'
+        );
 
     }
 
@@ -118,7 +120,9 @@ class UserController extends Controller
             'photo' => $file,
             'password' => $password
         ]);
-        return redirect('admin/user');
+        return redirect('admin/user')->with(
+            'success' , 'User is edited!'
+        );
     }
 
     /**
