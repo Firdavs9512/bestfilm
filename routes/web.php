@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActiorController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MainController;
@@ -28,7 +29,9 @@ Route::get('/movies/{id}',[MainController::class, 'show'])->name('moviepage');
 Route::get('actior/{id}',[MainController::class,'actiorshow'])->name('actiorpage');
 Route::get('/movie-list',[MainController::class,'allmovielist'])->name('allmovielist');
 
+
 Route::group(['prefix'=>'admin'], function(){
+    Route::get('/',[AdminController::class,'index'])->name('adminindex');
 
     //Route::resource('/user', UserController::class);
     Route::get('/user',[UserController::class,'index'])->name('userindex');

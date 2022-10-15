@@ -77,7 +77,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="{{ route('adminindex') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -245,7 +245,7 @@
                                 @foreach ($tags as $tag)
                               <tr>
                                   <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $tag->name }}</strong></td>
-                                    <td><span class="badge bg-label-primary me-1">10</span></td>
+                                    <td><span class="badge bg-label-primary me-1">{{ $tag->movies->count() }}</span></td>
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -262,6 +262,24 @@
 
                             </tbody>
                           </table>
+
+                          <div class="row mx-2 mt-2">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing {{ $tags->firstItem() }} to {{ $tags->lastItem() }} of {{ $tags->total() }}
+                                    entries</div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_paginate
+                                    paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                    <ul class="pagination">
+                                        {{-- //shu yerdan boshlanadi --}}
+                                        {{ $tags->links() }}
+                                        {{-- //bu yerda tugaydi --}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                         </div>
                       </div>
                 </div>

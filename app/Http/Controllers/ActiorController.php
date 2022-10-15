@@ -15,7 +15,7 @@ class ActiorController extends Controller
      */
     public function index()
     {
-        $actiors = Actior::all();
+        $actiors = Actior::paginate(10);
         return view('actior.index',compact('actiors'));
     }
 

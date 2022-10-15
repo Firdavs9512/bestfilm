@@ -77,7 +77,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="{{ route('adminindex') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -288,6 +288,24 @@
 
                             </tbody>
                           </table>
+
+                          <div class="row mx-2 mt-2">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of {{ $users->total() }}
+                                    entries</div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_paginate
+                                    paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                    <ul class="pagination">
+                                        {{-- //shu yerdan boshlanadi --}}
+                                        {{ $users->links() }}
+                                        {{-- //bu yerda tugaydi --}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                         </div>
                       </div>
                 </div>
