@@ -39,6 +39,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::post('/user',[UserController::class,'store'])->name('userstory');
     Route::get('/user/{id}/edit',[UserController::class,'edit'])->name('useredit');
     Route::post('/user/{id}/edit',[UserController::class,'update'])->name('userupdate');
+    Route::post('/user/delete',[UserController::class,'destroy'])->name('userdelete');
 
     //actior routes ///
     Route::get('/actior', [ActiorController::class, 'index'])->name('actiorindex');
@@ -48,6 +49,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/actior/{id}/edit',[ActiorController::class,'edit'])->name('actioredit');
     Route::post('actiorimage/{id}', [ImageController::class, 'image'])->name('actiorimage');
     Route::post('/actior/{id}/edit',[ActiorController::class,'update'])->name('actiorupdate');
+    Route::post('/actior/delete',[ActiorController::class,'destroy'])->name('actiordelete');
 
 
     //Route::resource('/tag', TagController::class);
@@ -56,6 +58,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/tag',[TagController::class,'index'])->name('tagindex');
     Route::post('/tag.{id}/edit',[TagController::class,'update'])->name('tagupdate');
     Route::get('/tag/{id}/edit',[TagController::class,'edit'])->name('tagedit');
+    Route::post('/tag/delete',[TagController::class,'destroy'])->name('tagdelete');
 
 
     //Route::resource('/category', CategoryController::class);
@@ -64,7 +67,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/category/create',[CategoryController::class, 'create'])->name('categorycreate');
     Route::get('/category/{id}/edit',[CategoryController::class,'edit'])->name('categoryedit');
     Route::post('/category/{id}/edit',[CategoryController::class,'update'])->name('categoryupdate');
-    Route::delete('/category/{id}/delete',[CategoryController::class,'destroy'])->name('categorydelete');
+    Route::post('/category/delete',[CategoryController::class,'destroy'])->name('categorydelete');
 
 
     //Route::resource('/movie', MovieController::class);
@@ -74,6 +77,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/movie/{id}/edit',[MovieController::class,'edit'])->name('movieedit');
     Route::post('/movie/{id}/edit',[MovieController::class,'update'])->name('movieupdate');
     Route::post('/movieimage/{id}',[ImageController::class,'movieimage'])->name('movieimage');
+    Route::post('/movie/delete',[MovieController::class,'destroy'])->name('moviedelete');
 
 });
 

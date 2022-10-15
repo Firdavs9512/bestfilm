@@ -100,9 +100,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $category = Category::find($id);
+        //dd($request);
+        $category = Category::find($request->id);
+        $category->movies()->detach();
         $category->delete();
         return redirect()->route('categoryindex')->with('success','Category is deleted!');
     }

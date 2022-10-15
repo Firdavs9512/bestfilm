@@ -117,9 +117,14 @@ class ActiorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        // dd($request);
+        $actior = Actior::find($request->id);
+        $actior->movies()->detach();
+        $actior->actiorPhotos()->delete();
+        $actior->delete();
+        return redirect()->route('actiorindex')->with('success','Actior is success deleted!');
     }
 
 }

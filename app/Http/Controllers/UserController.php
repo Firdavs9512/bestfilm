@@ -43,6 +43,8 @@ class UserController extends Controller
         ]);
         if(isset($request->photo)){
             $file = $request->file('photo')->store('images/users');
+        }else{
+            $file = "image/defaultuser.jpg";
         }
         $data = new User([
             'firsname' =>$request->firsname,
@@ -131,8 +133,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        // dd($request);
+        $user = User::find($request->id);
+        $user->delete();
+        return redirect()->route('userindex')->with('success','User is deleted!');
     }
 }

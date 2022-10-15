@@ -227,6 +227,42 @@
 
               <!-- Basic Layout & Basic with Icons -->
               <div class="row">
+                 <!-- Small Modal -->
+                 <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-sm " role="document">
+                      <div class="modal-content alert-primary">
+                        <div class="modal-header">
+                          <h5 class="modal-title text-danger" id="exampleModalLabel2">Warning</h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col mb-0">
+                                <h5 class="mb-0">Deleted this Actior!</h5>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            No
+                          </button>
+
+                          <form action="{{ route('actiordelete') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="" id="actiorid">
+                              <button type="submit" class="btn btn-danger">Yes delete</button>
+                            </form>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <!-- Basic Layout -->
                 <div class="col-xxl">
                     <div class="card">
@@ -264,13 +300,19 @@
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="{{ route('actiorshow',$actior->id) }}"><i class="bx bx-show me-1"></i> Show</a>
                                                 <a class="dropdown-item" href="{{ route('actioredit',$actior->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                <button onclick="deleteid({{ $actior->id }})" class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal"
+                                                data-bs-target="#smallModal"><i class="bx bx-trash me-1"></i> Delete</button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 @endforeach
+                                <script>
+                                    function deleteid(id){
+                                        document.getElementById("actiorid").value = id;
+                                    }
 
+                                  </script>
                             </tbody>
                           </table>
                           <div class="row mx-2 mt-2">

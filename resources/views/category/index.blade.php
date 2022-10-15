@@ -248,7 +248,7 @@
                             <div class="modal-body">
                               <div class="row">
                                 <div class="col mb-0">
-                                    <h5 class="mb-0">Deleted this Category</h5>
+                                    <h5 class="mb-0">Deleted this Category!</h5>
                                 </div>
                               </div>
 
@@ -257,7 +257,13 @@
                               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 No
                               </button>
-                              <button type="button" class="btn btn-danger">Yes delete</button>
+
+                              <form action="{{ route('categorydelete') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="" id="categoryid">
+                                  <button type="submit" class="btn btn-danger">Yes delete</button>
+                                </form>
+
                             </div>
                           </div>
                         </div>
@@ -283,7 +289,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="{{ route('categoryedit',$category->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <button data-bs-toggle="modal"
+                                                <button onclick="deleteid({{ $category->id }})" data-bs-toggle="modal"
                                                 data-bs-target="#smallModal"
                                                 class="dropdown-item"
                                                 ><i class="bx bx-trash me-1"></i> Delete</button>
@@ -295,6 +301,12 @@
 
                             </tbody>
                           </table>
+                          <script>
+                            function deleteid(id){
+                                document.getElementById("categoryid").value = id;
+                            }
+
+                          </script>
                           <div class="row mx-2 mt-2">
                             <div class="col-sm-12 col-md-6">
                                 <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing {{ $categories->firstItem() }} to {{ $categories->lastItem() }} of {{ $categories->total() }}

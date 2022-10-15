@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Movie;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class MovieController extends Controller
 {
@@ -144,7 +145,7 @@ class MovieController extends Controller
             'photo' => $file,
             'overview' => $request->overview
         ]);
-        return redirect('admin/movie/'.$request->id.'/edit');
+        return redirect()->route('movieindex')->with('success','Movie succes edited!');
     }
 
     /**
@@ -153,8 +154,16 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        // dd($request);
+        $movie = Movie::find($request->id);
+        $movie->actiors()->detach();
+        $movie->moviephotos()->delete();
+        $movie->categories()->detach();
+        $movie->tags()->detach();
+        $movie->users()->detach();
+        $movie->delete();
+        return redirect()->route('movieindex')->with('success','Movie success deleted!');
     }
 }
