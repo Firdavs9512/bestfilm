@@ -500,14 +500,9 @@
 					</select>
 
 					<div class="pagination2">
-						<span>Page 1 of 2:</span>
-						<a class="active" href="#">1</a>
-						<a href="#">2</a>
-						<a href="#">3</a>
-						<a href="#">...</a>
-						<a href="#">78</a>
-						<a href="#">79</a>
-						<a href="#"><i class="ion-arrow-right-b"></i></a>
+						<span>Page {{ $movies->lastItem() }} of {{ $movies->total() }}:</span>
+
+                        {{ $movies->links('vendor.pagination.defaultindex') }}
 					</div>
 				</div>
 			</div>

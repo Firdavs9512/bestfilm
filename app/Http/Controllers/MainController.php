@@ -13,7 +13,7 @@ class MainController extends Controller
     {
         $post = Movie::take(10)->get();
         $popular = Tag::find(1);
-        $popular2 = Tag::find(2);
+        $popular2 = Tag::find(4);
         $popular3 = Tag::find(3);
         $pupul = $popular->movies;
         $pupul2 = $popular2->movies;
@@ -40,7 +40,13 @@ class MainController extends Controller
     }
     public function allmovielist()
     {
-        $movies = Movie::paginate(30);
+        $movies = Movie::paginate(1);
         return view('index.moviesgridfull',compact('movies'));
+    }
+    public function actiorlist()
+    {
+        $actiors = Actior::paginate(1);
+        $actiorcount = Actior::all()->count();
+        return view('index.actiorlist',compact('actiors','actiorcount'));
     }
 }

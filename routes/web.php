@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,12 +24,12 @@ use Illuminate\Support\Facades\Route;
 
 
 //indexga oid fayllar
-Route::get('/',[MainController::class,'index']);
+Route::get('/',[MainController::class,'index'])->name('main');
 Route::get('/movies/{id}',[MainController::class, 'show'])->name('moviepage');
 //actior overview page
 Route::get('actior/{id}',[MainController::class,'actiorshow'])->name('actiorpage');
 Route::get('/movie-list',[MainController::class,'allmovielist'])->name('allmovielist');
-
+Route::get('/actior-list',[MainController::class,'actiorlist'])->name('actiorlist');
 
 Route::group(['prefix'=>'admin'], function(){
     Route::get('/',[AdminController::class,'index'])->name('adminindex');
@@ -78,6 +79,9 @@ Route::group(['prefix'=>'admin'], function(){
     Route::post('/movie/{id}/edit',[MovieController::class,'update'])->name('movieupdate');
     Route::post('/movieimage/{id}',[ImageController::class,'movieimage'])->name('movieimage');
     Route::post('/movie/delete',[MovieController::class,'destroy'])->name('moviedelete');
+
+    //index page setting
+    Route::get('/setting',[SettingController::class,'index'])->name('indexsetting');
 
 });
 
