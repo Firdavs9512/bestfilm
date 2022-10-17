@@ -34,13 +34,7 @@
 
 						</li>
 						<li class="dropdown first">
-							<a class="btn btn-default">
-							Categories
-							</a>
-
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default">
+							<a class="btn btn-default" href="{{ route('actiorlist') }}">
 							actiors list
 							</a>
 

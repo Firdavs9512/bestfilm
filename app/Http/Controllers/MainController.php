@@ -40,8 +40,9 @@ class MainController extends Controller
     }
     public function allmovielist()
     {
+        $moviescount = Movie::all()->count();
         $movies = Movie::paginate(1);
-        return view('index.moviesgridfull',compact('movies'));
+        return view('index.moviesgridfull',compact('movies','moviescount'));
     }
     public function actiorlist()
     {

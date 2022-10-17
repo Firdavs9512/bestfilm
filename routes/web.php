@@ -30,6 +30,8 @@ Route::get('/movies/{id}',[MainController::class, 'show'])->name('moviepage');
 Route::get('actior/{id}',[MainController::class,'actiorshow'])->name('actiorpage');
 Route::get('/movie-list',[MainController::class,'allmovielist'])->name('allmovielist');
 Route::get('/actior-list',[MainController::class,'actiorlist'])->name('actiorlist');
+Route::post('/login',[AdminController::class,'signin'])->name('signin');
+Route::post('/register',[AdminController::class,'signup'])->name('signup');
 
 Route::group(['prefix'=>'admin'], function(){
     Route::get('/',[AdminController::class,'index'])->name('adminindex');
