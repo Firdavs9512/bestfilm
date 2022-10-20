@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -14,6 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        session_start();
+        if($_SESSION['name']){
+            return redirect('/');
+        }
         $users = User::paginate(10);
         return view('user.index',compact('users'));
     }
@@ -25,6 +30,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        session_start();
+        if($_SESSION['name']){
+           // return redirect('/');
+        }
         return view('user.create');
     }
 
@@ -36,6 +45,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        session_start();
+        if($_SESSION['name']){
+          //  return redirect('/');
+        }
         $request->validate([
             'username' => 'required|unique:users',
             'email' => 'required|email',
@@ -53,7 +66,7 @@ class UserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'photo' => $file,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
         $data->save();
         return redirect('admin/user')->with(
@@ -81,6 +94,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $user = User::find($id);
         return view('user.edit',compact('user'));
     }
@@ -94,6 +111,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         //dd($request);
         $request->validate([
             'username' => 'required',
@@ -135,6 +156,10 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         // dd($request);
         $user = User::find($request->id);
         $user->delete();

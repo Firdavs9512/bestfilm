@@ -18,6 +18,10 @@ class MovieController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $movies = Movie::paginate(10);
         return view('movie.index',compact('movies'));
     }
@@ -29,7 +33,10 @@ class MovieController extends Controller
      */
     public function create()
     {
-
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $tags = Tag::all();
         $categories = Category::all();
         $actiors = Actior::all();
@@ -44,6 +51,10 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $request->validate([
             'name' =>'required',
             'overview' => 'required',
@@ -109,6 +120,10 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $movie = Movie::find($id);
         return view('movie.edit',compact('movie'));
     }
@@ -122,6 +137,10 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $request->validate([
             'name' =>'required',
             'overview' => 'required',
@@ -156,6 +175,10 @@ class MovieController extends Controller
      */
     public function destroy(Request $request)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         // dd($request);
         $movie = Movie::find($request->id);
         $movie->actiors()->detach();

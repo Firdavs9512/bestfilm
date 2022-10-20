@@ -15,6 +15,10 @@ class ActiorController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         $actiors = Actior::paginate(10);
         return view('actior.index',compact('actiors'));
     }
@@ -26,6 +30,10 @@ class ActiorController extends Controller
      */
     public function create()
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         return view('actior.create');
     }
 
@@ -37,6 +45,10 @@ class ActiorController extends Controller
      */
     public function store(Request $request)
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         $request->validate([
             'overview' => 'required',
             'name' => 'required',
@@ -68,6 +80,10 @@ class ActiorController extends Controller
      */
     public function show($id)
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         $actior = Actior::find($id);
         return view('actior.show', compact('actior'));
     }
@@ -80,6 +96,10 @@ class ActiorController extends Controller
      */
     public function edit($id)
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         $actior = Actior::find($id);
         return view('actior.edit', compact('actior'));
     }
@@ -93,6 +113,10 @@ class ActiorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         $request->validate([
             'name' => 'required',
             'country' => 'required',
@@ -119,6 +143,10 @@ class ActiorController extends Controller
      */
     public function destroy(Request $request)
     {
+        session_start();
+        if(!session()->get('name')){
+            return redirect('/');
+        }
         // dd($request);
         $actior = Actior::find($request->id);
         $actior->movies()->detach();

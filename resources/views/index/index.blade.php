@@ -35,7 +35,9 @@
 <!--login form popup-->
 @include('layauts.signin')
 <!--signup form popup-->
+
 @include('layauts.signup')
+
 <!--end of signup form popup-->
 
 @include('layauts.mainheader')
@@ -44,7 +46,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="social-link">
-				<p>Follow us: </p>
+				<p>Follow us:{{ auth()->user() }} </p>
 				<a href="#"><i class="ion-social-facebook"></i></a>
 				<a href="#"><i class="ion-social-twitter"></i></a>
 				<a href="#"><i class="ion-social-youtube"></i></a>

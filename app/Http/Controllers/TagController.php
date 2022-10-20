@@ -14,6 +14,10 @@ class TagController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $tags = Tag::paginate(10);
         return view('tag.index',compact('tags'));
     }
@@ -25,6 +29,10 @@ class TagController extends Controller
      */
     public function create()
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         return view('tag.create');
     }
 
@@ -36,6 +44,10 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $request->validate([
             'name' => 'required'
         ]);
@@ -67,6 +79,10 @@ class TagController extends Controller
      */
     public function edit($id)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $tag = Tag::find($id);
         return view('tag.edit',compact('tag'));
     }
@@ -80,6 +96,10 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         $request->validate([
             'name' => 'required'
         ]);
@@ -98,6 +118,10 @@ class TagController extends Controller
      */
     public function destroy(Request $request)
     {
+        session_start();
+        if(!$_SESSION['name']){
+            return redirect('/');
+        }
         // dd($request);
         $tag = Tag::find($request->id);
         $tag->movies()->detach();

@@ -32,8 +32,9 @@ Route::get('/movie-list',[MainController::class,'allmovielist'])->name('allmovie
 Route::get('/actior-list',[MainController::class,'actiorlist'])->name('actiorlist');
 Route::post('/login',[AdminController::class,'signin'])->name('signin');
 Route::post('/register',[AdminController::class,'signup'])->name('signup');
+Route::get('/admin/logout',[AdminController::class,'logout'])->name('logout');
 
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin','middleware'=>'login'], function(){
     Route::get('/',[AdminController::class,'index'])->name('adminindex');
 
     //Route::resource('/user', UserController::class);
