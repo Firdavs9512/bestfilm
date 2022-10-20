@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Movie;
 use App\Models\MoviePhoto;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,12 +17,10 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
     public function index()
     {
-        // session_start();
-        // if(!session()->get('name')){
-        //     return redirect('/');
-        // }
+
         $views = 0;
         $actiorcount = Actior::all()->count();
         $tagcount = Tag::all()->count();
@@ -48,29 +47,50 @@ class AdminController extends Controller
         if($success){
             // dd('d');
             // dd(auth()->user()->id);
-            return redirect('/');
+            return redirect()->route('adminindex');
         }else{
-            dd($success);
+            // dd($success);
+            return redirect('/');
         }
 
     }
 
     public function signup(Request $request)
     {
-        // dd($request);
         $request->validate([
             'email' => 'required|email',
             'username' => 'required|unique:admins',
             'password' => 'required',
         ]);
-        Admin::create([
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
-        session(['name' => $request->username]);
-        session(['email' => $request->email]);
+        // $data = [
+            //     'username' => $request->username,
+            //     'email' => $request->email,
+            //     'password' => $request->password
+            // ];
+
+            $user = User::create([
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+            auth()->login($user);
+            // dd($success);
+            // if($success){
+            // dd('d');
+            // dd(auth()->user()->id);
+            // $request->session()->regenerate();
+            return redirect()->route('adminindex');
+
+
+        // Auth::attempt($data);
         return redirect()->route('adminindex');
+        // if($success){
+            // dd('d');
+            // dd(auth()->user()->id);
+        // }else{
+            // dd($success);
+            // return redirect('/');
+        // }
     }
 
 

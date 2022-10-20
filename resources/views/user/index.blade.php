@@ -271,11 +271,9 @@
                           <table class="table">
                             <thead class="table-light">
                               <tr>
-                                <th>Name F/L</th>
                                 <th>UserName</th>
                                 <th>Email</th>
-                                <th>Photo</th>
-                                <th>Country</th>
+                                <th>Token</th>
                                 <th>Options</th>
                               </tr>
                             </thead>
@@ -285,28 +283,18 @@
                                 @foreach ($users as $user)
                                 <tr>
                                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                        @if (isset($user->lastname) or isset($user->firsname))
-                                            {{ $user->firsname }} {{ $user->lastname }}
-                                        @else
-                                            F/L is null
-                                        @endif
+                                       {{ $user->username }}
                                     </strong></td>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-1"></i> <strong>{{ $user->username }}</strong></td>
                                     <td><i class="fab fa-angular fa-lg text-danger me-1"></i> <strong>{{ $user->email }}</strong></td>
-                                    <td>
-                                        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="null">
-                                              <img src="{{ url('storage/'.$user->photo) }}" alt="no image" class="rounded-circle">
-                                            </li>
-                                          </ul>
-                                        </td>
-                                    <td><span class="badge bg-label-primary me-1">
-                                        @if (isset($user->country))
-                                            {{ $user->country }}
-                                        @else
-                                            null
-                                        @endif
+
+
+                                    @if (isset($user->remember_token))
+                                        <td><span class="badge bg-label-success me-1">True
+                                        </span></td>
+                                    @else
+                                    <td><span class="badge bg-label-primary me-1">False
                                     </span></td>
+                                    @endif
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

@@ -11,10 +11,7 @@ class ImageController extends Controller
 {
     public function image($id,Request $request)
     {
-        session_start();
-        if(!$_SESSION['name']){
-            return redirect('/');
-        }
+
         $request->validate([
             'photos'=> 'required|image'
         ]);
@@ -28,10 +25,7 @@ class ImageController extends Controller
 
     public function movieimage(Request $request, $id)
     {
-        session_start();
-        if(!$_SESSION['name']){
-            return redirect('/');
-        }
+
         $request->validate([
             'photos' => 'required|image'
         ]);

@@ -236,18 +236,7 @@
                     <div class="card-body">
                       <form action="{{ route('userupdate',$user->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-firs">FirsName</label>
-                          <div class="col-sm-10">
-                            <input value="{{ $user->firsname }}" name="firsname" type="text" class="form-control" id="basic-default-firs" placeholder="Firsname" />
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-last">LastName</label>
-                            <div class="col-sm-10">
-                              <input value="{{ $user->lastname }}" name="lastname" type="text" class="form-control" id="basic-default-last" placeholder="Lastname" />
-                            </div>
-                        </div>
+
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-username">UserName *</label>
                             <div class="col-sm-10">
@@ -257,22 +246,6 @@
                             @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-coun">Country</label>
-                            <div class="col-sm-10">
-                              <input value="{{ $user->country }}" name="country" type="text" class="form-control" id="basic-default-coun" placeholder="Country" />
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="formFile" class="col-sm-2 col-form-label">User Image</label>
-                            <div class="col-sm-10">
-                                <input name="photo" class="form-control" type="file" id="formFile">
-                                @error('photo')
-                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
-                            @enderror
-                            </div>
-
-                          </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-email">Email *</label>
                             <div class="col-sm-10">

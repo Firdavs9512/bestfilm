@@ -14,10 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        session_start();
-        if(!session()->get('name')){
-            return redirect('/');
-        }
+
         $categories = Category::paginate(10);
         return view('category.index',compact('categories'));
     }
@@ -29,10 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        session_start();
-        if(!session()->get('name')){
-            return redirect('/');
-        }
+
         return view('category.create');
     }
 
@@ -44,10 +38,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        session_start();
-        if(!session()->get('name')){
-            return redirect('/');
-        }
+
         $request->validate([
             'name' => 'required'
         ]);
@@ -80,10 +71,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        session_start();
-        if(!session()->get('name')){
-            return redirect('/');
-        }
+
         $category = Category::find($id);
         return view('category.edit',compact('category'));
     }
@@ -97,10 +85,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        session_start();
-        if(!session()->get('name')){
-            return redirect('/');
-        }
+
         $request->validate([
             'name' => 'required'
         ]);
@@ -122,10 +107,7 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request)
     {
-        session_start();
-        if(!session()->get('name')){
-            return redirect('/');
-        }
+
         //dd($request);
         $category = Category::find($request->id);
         $category->movies()->detach();

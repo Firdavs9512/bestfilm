@@ -15,10 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        session_start();
-        if($_SESSION['name']){
-            return redirect('/');
-        }
+
         $users = User::paginate(10);
         return view('user.index',compact('users'));
     }
@@ -30,10 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        session_start();
-        if($_SESSION['name']){
-           // return redirect('/');
-        }
+
         return view('user.create');
     }
 
@@ -45,10 +39,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        session_start();
-        if($_SESSION['name']){
-          //  return redirect('/');
-        }
         $request->validate([
             'username' => 'required|unique:users',
             'email' => 'required|email',
@@ -94,10 +84,6 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        session_start();
-        if(!$_SESSION['name']){
-            return redirect('/');
-        }
         $user = User::find($id);
         return view('user.edit',compact('user'));
     }
@@ -111,10 +97,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        session_start();
-        if(!$_SESSION['name']){
-            return redirect('/');
-        }
+
         //dd($request);
         $request->validate([
             'username' => 'required',
@@ -156,10 +139,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
-        session_start();
-        if(!$_SESSION['name']){
-            return redirect('/');
-        }
+
         // dd($request);
         $user = User::find($request->id);
         $user->delete();
