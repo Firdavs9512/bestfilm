@@ -238,7 +238,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-username">UserName *</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-username">UserName</label>
                             <div class="col-sm-10">
                               <input value="{{ $user->username }}" name="username" type="text" class="form-control" id="basic-default-username" placeholder="Username" />
                               @error('username')
@@ -247,7 +247,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-email">Email *</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
                             <div class="col-sm-10">
                               <input value="{{ $user->email }}" name="email" type="email" class="form-control" id="basic-default-email" placeholder="Email" />
                               @error('email')
@@ -256,7 +256,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-pass">Password *</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-pass">Password</label>
                             <div class="col-sm-10">
                               <input name="password" type="text" class="form-control" id="basic-default-pass" placeholder="Password" />
                               @error('password')

@@ -11,7 +11,7 @@
 <!-- celebritysingle12:04-->
 <head>
 	<!-- Basic need -->
-	<title>Open Pediatrics</title>
+	<title>{{ $actior->name }} - Full biographi</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -47,116 +47,7 @@
 <!--end of signup form popup-->
 
 <!-- BEGIN | Header -->
-<header class="ht-header">
-	<div class="container">
-		<nav class="navbar navbar-default navbar-custom">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header logo">
-				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					    <span class="sr-only">Toggle navigation</span>
-					    <div id="nav-icon1">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-				    </div>
-				    <a href="index-2.html"><img class="logo" src="{{ url('images/logo1.png') }}" alt="" width="119" height="58"></a>
-			    </div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav flex-child-menu menu-left">
-						<li class="hidden">
-							<a href="#page-top"></a>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
-							Home <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="index-2.html">Home 01</a></li>
-								<li><a href="homev2.html">Home 02</a></li>
-								<li><a href="homev3.html">Home 03</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Movie grid<i class="ion-ios-arrow-forward"></i></a>
-									<ul class="dropdown-menu level2">
-										<li><a href="moviegrid.html">Movie grid</a></li>
-										<li><a href="moviegridfw.html">movie grid full width</a></li>
-									</ul>
-								</li>
-								<li><a href="movielist.html">Movie list</a></li>
-								<li><a href="moviesingle.html">Movie single</a></li>
-								<li class="it-last"><a href="seriessingle.html">Series single</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="celebritygrid01.html">celebrity grid 01</a></li>
-								<li><a href="celebritygrid02.html">celebrity grid 02 </a></li>
-								<li><a href="celebritylist.html">celebrity list</a></li>
-								<li class="it-last"><a href="celebritysingle.html">celebrity single</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							news <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="bloglist.html">blog List</a></li>
-								<li><a href="bloggrid.html">blog Grid</a></li>
-								<li class="it-last"><a href="blogdetail.html">blog Detail</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							community <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="userfavoritegrid.html">user favorite grid</a></li>
-								<li><a href="userfavoritelist.html">user favorite list</a></li>
-								<li><a href="userprofile.html">user profile</a></li>
-								<li class="it-last"><a href="userrate.html">user rate</a></li>
-							</ul>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav flex-child-menu menu-right">
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="landing.html">Landing</a></li>
-								<li><a href="404.html">404 Page</a></li>
-								<li class="it-last"><a href="comingsoon.html">Coming soon</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Help</a></li>
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
-					</ul>
-				</div>
-			<!-- /.navbar-collapse -->
-	    </nav>
-
-	    <!-- top search form -->
-	    <div class="top-search">
-	    	<select>
-				<option value="united">TV show</option>
-				<option value="saab">Others</option>
-			</select>
-			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-	    </div>
-	</div>
-</header>
+@include('layauts.mainheader')
 <!-- END | Header -->
 
 <div class="hero hero3">
@@ -207,7 +98,7 @@
 						            		<p>{{ $actior->overview }}</p>
 											<p class="time"><a href="#">See full bio <i class="ion-ios-arrow-right"></i></a></p>
 						            		<div class="title-hd-sm">
-												<h4>Videos</h4>
+												<h4>Photos</h4>
 												<a href="#" class="time">All {{ $actior->actiorPhotos()->count() }} Photos <i class="ion-ios-arrow-right"></i></a>
 											</div>
 											<div class="mvsingle-item ov-item">
@@ -217,9 +108,6 @@
                                                     @endif
                                                    <a class="img-lightbox"  data-fancybox-group="gallery" href="{{ url('storage/'.$moviephoto->name) }}" ><img style="width: 100px;height: 100px;" src="{{ url('storage/'.$moviephoto->name) }}" alt=""></a>
                                                    @endforeach
-                                                   {{-- <a class="img-lightbox"  data-fancybox-group="gallery" href="{{ url('storage/') }}" ><img src="{{ url('images/uploads/image1.jpg') }}" alt=""></a>
-												<a class="img-lightbox"  data-fancybox-group="gallery" href="{{ url('images/uploads/image21.jpg') }}" ><img src="{{ url('images/uploads/image2.jpg') }}" alt=""></a>
-												<a class="img-lightbox"  data-fancybox-group="gallery" href="{{ url('images/uploads/image31.jpg') }}" ><img src="{{ url('images/uploads/image3.jpg') }}" alt=""></a> --}}
 
 											</div>
 											<div class="title-hd-sm">
@@ -242,17 +130,6 @@
 													<p>...  {{ date('Y', strtotime($film->date)) }}</p>
 												</div>
                                                 @endforeach
-
-												{{-- <div class="cast-it">
-													<div class="cast-left cebleb-film">
-														<img src="{{ url('images/uploads/film2.jpg') }}" alt="">
-														<div>
-															<a href="#">Eddie the Eagle </a>
-															<p class="time">Bronson Peary</p>
-														</div>
-													</div>
-													<p>...  2015</p>
-												</div> --}}
 
 											</div>
 						            	</div>
@@ -307,7 +184,6 @@
                                             @foreach ($actior->actiorPhotos as $photo)
 											<a class="img-lightbox"  data-fancybox-group="gallery" href="{{ url('storage/'.$photo->name) }}" ><img style="width: 100px; height:100px" src="{{ url('storage/'.$photo->name) }}" alt=""></a>
                                             @endforeach
-											{{-- <a class="img-lightbox"  data-fancybox-group="gallery"  href="{{ url('images/uploads/image21.jpg') }}" ><img src="{{ url('images/uploads/image2.jpg') }}" alt=""></a> --}}
 										</div>
 						        	</div>
 					       	 	</div>
@@ -349,18 +225,6 @@
 											</div>
                                             @endforeach
 
-											{{-- <div class="cast-it">
-												<div class="cast-left cebleb-film">
-													<img src="{{ url('images/uploads/film2.jpg') }}" alt="">
-													<div>
-														<a href="#">Eddie the Eagle </a>
-														<p class="time">Bronson Peary</p>
-													</div>
-												</div>
-												<p>...  2015</p>
-											</div>
-                                             --}}
-
 										</div>
 						            </div>
 					       	 	</div>
@@ -380,20 +244,20 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
-				 <a href="index-2.html"><img class="logo" src="{{ url('images/logo1.png') }}" alt=""></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <p>Web site Create Firdavs<br>
+				Full BackEnd</p>
+				<p>Call us: <a href="https://github.com/firdavs9512">
+                      Github.com</a></p>
 			</div>
 			<div class="flex-child-ft item2">
 				<h4>Resources</h4>
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Blockbuster</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Forums</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Help Center</a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Movies list</a></li>
+					<li><a href="#">Actiors list</a></li>
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Register</a></li>
 				</ul>
 			</div>
 			<div class="flex-child-ft item3">
@@ -405,10 +269,10 @@
 				</ul>
 			</div>
 			<div class="flex-child-ft item4">
-				<h4>Account</h4>
+				<h4>Admin</h4>
 				<ul>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Watchlist</a></li>
+					<li><a href="#">Movies</a></li>
+					<li><a href="#">Statistic</a></li>
 					<li><a href="#">Collections</a></li>
 					<li><a href="#">User Guide</a></li>
 				</ul>
@@ -425,7 +289,7 @@
 	</div>
 	<div class="ft-copyright">
 		<div class="ft-left">
-			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+			<p><a target="_blank" href="https://github.com/firdavs9512">Creater Firdavs</a></p>
 		</div>
 		<div class="backtotop">
 			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>

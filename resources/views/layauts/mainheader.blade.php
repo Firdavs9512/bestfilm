@@ -49,13 +49,17 @@
 			<!-- /.navbar-collapse -->
 	    </nav>
 
-	    <!-- top search form -->
-	    <div class="top-search">
-	    	<select>
-				<option value="united">Movie</option>
-			</select>
-			<input type="text" placeholder="Search for a movie name...">
-	    </div>
-	</div>
+        <form action="{{ route('search') }}" method="POST">
+            @csrf
+            <!-- top search form -->
+            <div class="top-search">
+                <select>
+                    <option value="united">Movie</option>
+                </select>
+                <input value="{{ $search }}" type="text" name="search" placeholder="Search for a movie name...">
+            </div>
+        </form>
+
+        </div>
 </header>
 <!-- END | Header -->

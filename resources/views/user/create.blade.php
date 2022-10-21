@@ -236,20 +236,9 @@
                     <div class="card-body">
                       <form action="{{ route('userstory') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-firs">FirsName</label>
-                          <div class="col-sm-10">
-                            <input name="firsname" type="text" class="form-control" id="basic-default-firs" placeholder="Firsname" />
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-last">LastName</label>
-                            <div class="col-sm-10">
-                              <input name="lastname" type="text" class="form-control" id="basic-default-last" placeholder="Lastname" />
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-username">UserName *</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-username">UserName</label>
                             <div class="col-sm-10">
                               <input name="username" type="text" class="form-control" id="basic-default-username" placeholder="Username" />
                               @error('username')
@@ -257,27 +246,9 @@
                             @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-coun">Country</label>
-                            <div class="col-sm-10">
-                              <input name="country" type="text" class="form-control" id="basic-default-coun" placeholder="Country" />
-                              @error('country')
-                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
-                            @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="formFile" class="col-sm-2 col-form-label">User Image</label>
-                            <div class="col-sm-10">
-                                <input name="photo" class="form-control" type="file" id="formFile">
-                                @error('photo')
-                              <div style="color: rgb(212, 45, 45)" class="form-text">{{ $message }}</div>
-                            @enderror
-                            </div>
 
-                          </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-email">Email *</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
                             <div class="col-sm-10">
                               <input name="email" type="email" class="form-control" id="basic-default-email" placeholder="Email" />
                               @error('email')
@@ -286,7 +257,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-pass">Password *</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-pass">Password</label>
                             <div class="col-sm-10">
                               <input name="password" type="text" class="form-control" id="basic-default-pass" placeholder="Password" />
                               @error('password')

@@ -11,7 +11,7 @@
 <!-- celebritygrid0111:24-->
 <head>
 	<!-- Basic need -->
-	<title>Open Pediatrics</title>
+	<title>Actiors - list BestFilm corp</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -72,13 +72,6 @@
 					<p>Found <span>{{ $actiorcount }} celebrities</span> in total</p>
 				</div>
 				<div class="celebrity-items">
-					<div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb1.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Tom Hardy</a></h2>
-							<span>actor, usa</span>
-						</div>
-					</div>
 
                     @foreach ($actiors as $actior)
 					<div class="ceb-item">
@@ -90,56 +83,6 @@
 					</div>
                     @endforeach
 
-                    <div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb3.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Emma Stone</a></h2>
-							<span>Actress, usa</span>
-						</div>
-					</div>
-					<div class="ceb-item">
-						<a href="celebritysingle.html"> <img src="images/uploads/ceb4.jpg" alt=""></a>
-
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Olga Kurylenko</a></h2>
-							<span>Actress, sweden</span>
-						</div>
-					</div>
-					<div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb5.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Micheal Bay</a></h2>
-							<span>Director, france</span>
-						</div>
-					</div>
-					<div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb6.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Martin Scorsese</a></h2>
-							<span>Director, italy</span>
-						</div>
-					</div>
-					<div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb7.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">TJohnson Staham</a></h2>
-							<span>actor, uk</span>
-						</div>
-					</div>
-					<div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb8.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Haley Bennett</a></h2>
-							<span>actress, france</span>
-						</div>
-					</div>
-					<div class="ceb-item">
-						<a href="celebritysingle.html"><img src="images/uploads/ceb9.jpg" alt=""></a>
-						<div class="ceb-infor">
-							<h2><a href="celebritylist.html">Teresa Palmer</a></h2>
-							<span>actress, uk</span>
-						</div>
-					</div>
 				</div>
 				<div class="topbar-filter">
 					<label>Reviews per page:</label>
@@ -248,19 +191,19 @@
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
 				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+				 <p>Web site Create Firdavs<br>
+				Full BackEnd</p>
+				<p>Call us: <a href="https://github.com/firdavs9512">
+                      Github.com</a></p>
 			</div>
 			<div class="flex-child-ft item2">
 				<h4>Resources</h4>
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Blockbuster</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Forums</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Help Center</a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Movies list</a></li>
+					<li><a href="#">Actiors list</a></li>
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Register</a></li>
 				</ul>
 			</div>
 			<div class="flex-child-ft item3">
@@ -272,10 +215,10 @@
 				</ul>
 			</div>
 			<div class="flex-child-ft item4">
-				<h4>Account</h4>
+				<h4>Admin</h4>
 				<ul>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Watchlist</a></li>
+					<li><a href="#">Movies</a></li>
+					<li><a href="#">Statistic</a></li>
 					<li><a href="#">Collections</a></li>
 					<li><a href="#">User Guide</a></li>
 				</ul>
@@ -292,7 +235,7 @@
 	</div>
 	<div class="ft-copyright">
 		<div class="ft-left">
-			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+			<p><a target="_blank" href="https://github.com/firdavs9512">Creater Firdavs</a></p>
 		</div>
 		<div class="backtotop">
 			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>

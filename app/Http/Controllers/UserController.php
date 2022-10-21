@@ -44,18 +44,9 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' =>'required'
         ]);
-        if(isset($request->photo)){
-            $file = $request->file('photo')->store('images/users');
-        }else{
-            $file = "image/defaultuser.jpg";
-        }
         $data = new User([
-            'firsname' =>$request->firsname,
-            'lastname' => $request->lastname,
-            'country' => $request->country,
             'username' => $request->username,
             'email' => $request->email,
-            'photo' => $file,
             'password' => Hash::make($request->password)
         ]);
         $data->save();
@@ -106,11 +97,7 @@ class UserController extends Controller
         ]);
 
         $user = User::find($id);
-        if(isset($request->photo)){
-            $file = $request->file('photo')->store('images/users');
-        }else{
-            $file = $user->photo;
-        }
+
         if($request->password ==! null){
             $password = $request->password;
         }else{
@@ -118,12 +105,8 @@ class UserController extends Controller
         }
 
         $user->update([
-            'firsname' =>$request->firsname,
-            'lastname' => $request->lastname,
-            'country' => $request->country,
             'username' => $request->username,
             'email' => $request->email,
-            'photo' => $file,
             'password' => $password
         ]);
         return redirect('admin/user')->with(
